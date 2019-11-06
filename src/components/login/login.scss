@@ -1,0 +1,48 @@
+@import '../../css/constants.scss';
+
+.login {
+  border: 1px solid black;
+  background: black;
+  width: 64%;
+  margin: 0 auto;
+  height: 341px;
+  position: relative;
+  top: 154px;
+  max-width: 591px;
+
+  .loginLogo {
+    height: 25%;
+    color: yellow;
+    font-size: 7em;
+
+    div {
+      display: flex;
+      justify-content: center;
+      font-family: Star;
+      padding-top: 15px;
+    }
+  }
+  .loginForm {
+    height: 60%;
+    width: 90%;
+    border: 1px solid white;
+    border-radius: 7px;
+    margin: 5%;
+    background-color: white;
+    .loginGrid {
+      height: 86%;
+      width: 79%;
+      margin: 3% auto;
+      display: grid;
+      align-items: flex-end;
+
+      .loginButton {
+        display: flex;
+        justify-content: flex-end;
+        button {
+          font-family: Star;
+        }
+      }
+    }
+  }
+}

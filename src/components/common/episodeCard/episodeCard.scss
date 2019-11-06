@@ -1,0 +1,36 @@
+@import '../../../css/constants.scss';
+
+.episodeCard {
+  height: 401px;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  border-radius: 5px;
+
+  .episodeImg {
+    img {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      width: 211px;
+    }
+  }
+  .episodeInfo {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: white;
+    .episodeContext {
+      width: 90%;
+      height: 84%;
+      margin: auto;
+      display: grid;
+      grid-template-rows: 25% 75%;
+      margin-top: 22px;
+
+      .episodeTitle {
+        color: $LighBlue;
+        font-family: Star;
+      }
+      .episodeParagraph {
+      }
+    }
+  }
+}

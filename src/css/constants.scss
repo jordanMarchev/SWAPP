@@ -1,0 +1,94 @@
+// Common Colors:
+$Yellow: #ffe300;
+$LighBlue: #4bd5ee;
+$Black: #000;
+$White: #fff;
+
+// Light Theme​
+
+$lightDefaultBackground: ​ #e8eaed;
+$lightDefaultFontColor: ​ #4e5b6e;
+
+@mixin LightCards {
+  border-color: #e5e9f2;
+  background: #fff;
+}
+
+@mixin LightSolidButtons​ {
+  background: #000;
+  border-color: #e5e9f2;
+  color: #ffe300;
+}
+
+@mixin LightOutlineButtons​ {
+  background-color: #eff2f7;
+  border-color: #e5e9f2;
+  color: inherit;
+}
+
+@mixin LightInputs​ {
+  background-color: #eff2f7;
+  border-color: #e5e9f2;
+  color: #3c4858;
+}
+
+@mixin LightAppBar​ {
+  background-color: #000;
+  border-color: #333;
+  color: #4bd5ee;
+}
+
+@mixin LightRadar​ {
+  color: #4bd5ee;
+  background-color: #000;
+  grid: #3c4858;
+}
+
+// Dark Theme​ :
+
+$DarkBackground: #000;
+$DarkColor: #abb1ba;
+
+@mixin DarkCards {
+  border-color: #3c4858;
+  background-color: #333;
+}
+
+@mixin DarkSolidButtons​ {
+  background-color: #4bd5ee;
+  border-color: none;
+  color: #ffe300;
+}
+
+@mixin DarkOutlineButtons​ {
+  border-color: #3c4858;
+  background-color: #333;
+  color: inherit;
+}
+
+@mixin DarkInputs​ {
+  background-color: #fff;
+  border-color: #3c4858;
+  color: #273444;
+}
+
+@mixin DarkAppBar​ {
+  border-color: #3c4858;
+  background-color: #333;
+  color: #4bd5ee;
+}
+
+@mixin DarkPrimaryHeading​ {
+  color: #ffe300;
+}
+
+@mixin DarkRadar​ {
+  color: #ffe300;
+  background-color: #000;
+  grid: #333;
+}
+
+@font-face {
+  font-family: 'Star';
+  src: url('./fonts/SfDistantGalaxyAlternateItalic-3RDM.ttf') format('truetype');
+}

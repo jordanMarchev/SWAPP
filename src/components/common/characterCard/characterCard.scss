@@ -1,0 +1,23 @@
+@import '../../../css/constants.scss';
+
+.characterCard {
+  height: 100px;
+  display: grid;
+  grid-template-columns: 35% 65%;
+
+  img {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  .characterName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Star;
+    color: $LighBlue;
+    background: white;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+}

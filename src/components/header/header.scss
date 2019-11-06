@@ -1,0 +1,34 @@
+@import '../../css/constants.scss';
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 213px;
+  align-items: center;
+
+  .logo,
+  .rightHeader {
+    height: 53px;
+  }
+
+  .logo {
+    height: auto;
+    cursor: pointer;
+
+    div {
+      color: $Yellow;
+      font-family: Star;
+      margin-left: 13px;
+    }
+  }
+
+  .rightHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr 39px;
+    align-items: center;
+    a {
+      color: $LighBlue;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}

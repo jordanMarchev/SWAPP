@@ -1,0 +1,18 @@
+@import '../../../css/constants.scss';
+
+.button {
+  width: 100px;
+  height: 33px;
+  button {
+    @include LightSolidButtons​;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    font-family: Star;
+    cursor: pointer;
+  }
+}

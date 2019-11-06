@@ -1,0 +1,15 @@
+@import '../../../css/constants.scss';
+
+.input {
+  border: 1px solid aliceblue;
+  border-radius: 5px;
+
+  input {
+    @include LightInputs​;
+    width: 96%;
+    border: unset;
+    padding: 2%;
+    border-radius: 5px;
+    outline: none;
+  }
+}
