@@ -60,7 +60,7 @@ const Characters = ({ history }) => {
   console.log(data, '   data2');
 
   return (
-    <>
+    <React.Fragment>
       <div className='characterCards'>
         {allPeople.map((movieData, i) => {
           const { id, name, image } = movieData.node;
@@ -75,7 +75,7 @@ const Characters = ({ history }) => {
       <div className='loadMore'>
         <Button onClick={onLoadMore} text={'Load More'} />
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

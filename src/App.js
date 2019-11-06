@@ -8,13 +8,13 @@ import Screen from './Screen';
 
 const App = () => {
   return (
-    <>
+    <React.Fragment>
       <ApolloProvider client={client}>
         <StarWarsState>
           <Screen />
         </StarWarsState>
       </ApolloProvider>
-    </>
+    </React.Fragment>
   );
 };
 

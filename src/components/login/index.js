@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useMutation, useQuery, useApolloClient } from '@apollo/react-hooks';
+import { useMutation, useApolloClient } from '@apollo/react-hooks';
 
 import Input from '../common/input';
 import Button from '../common/button';
@@ -16,32 +16,20 @@ const ADD_TODO = gql`
   }
 `;
 
-const GET_DOG_PHOTO = gql`
-  query {
-    me {
-      email
-    }
-  }
-`;
-
 const Login = () => {
   const [inputEmail, setEmail] = useState('');
   const [inputPassword, setPassword] = useState('');
   const client = useApolloClient();
-  const [addTodo, { data }] = useMutation(ADD_TODO, {
+  const [addTodo] = useMutation(ADD_TODO, {
     onCompleted: ({ signIn }) => {
       localStorage.setItem('token', signIn.token);
       client.writeData({ data: { authenticated: true } });
     }
   });
 
-  console.log(data);
-
   const onLogin = () => {
     addTodo({ variables: { email: inputEmail, password: inputPassword } });
   };
-
-  // { email: 'demo@st6.io', password: 'demo1234' } }
 
   return (
     <div className='login'>
@@ -63,7 +51,7 @@ const Login = () => {
               placeholder={'Password'}
               value={inputPassword}
               onChange={setPassword}
-              inputType={'password'}
+              // inputType={'password'}
             />
           </div>
           <div className='loginButton'>

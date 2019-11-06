@@ -22,7 +22,7 @@ const AUTH_QUERY = gql`
 `;
 
 const Screen = () => {
-  const { data, loading, error } = useQuery(AUTH_QUERY);
+  const { data } = useQuery(AUTH_QUERY);
 
   return (
     <React.Fragment>
@@ -35,7 +35,7 @@ const Screen = () => {
                 <Redirect from='/' to='/login' />
               </div>
             ) : (
-              <>
+              <React.Fragment>
                 <div className='headerContainer'>
                   <Header />
                 </div>
@@ -44,7 +44,7 @@ const Screen = () => {
                   <Route exact path='/characters' component={Characters} />
                   <Redirect from='/' to='/episodes' />
                 </div>
-              </>
+              </React.Fragment>
             )}
           </Switch>
         </Router>

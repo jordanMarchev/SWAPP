@@ -6,7 +6,7 @@ const EpisodeCard = ({ title, p, img }) => {
   return (
     <div className='episodeCard'>
       <div className='episodeImg'>
-        <img width={'202px'} src={img} />
+        <img width={'202px'} src={img} alt={title} />
       </div>
       <div className='episodeInfo'>
         <div className='episodeContext'>
