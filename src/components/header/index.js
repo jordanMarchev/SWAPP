@@ -1,14 +1,22 @@
-import React from 'react';
-import './header.scss';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { useApolloClient } from '@apollo/react-hooks';
 
-const Header = ({ history }) => {
+import StarWarsContext from '../../context/starWars/starWarsContext';
+
+import './header.scss';
+
+const Header = () => {
+  const starWarsContext = useContext(StarWarsContext);
+  const client = useApolloClient();
+
   const onLogout = () => {
     localStorage.removeItem('token');
+    client.writeData({ data: { authenticated: false } });
   };
   return (
     <div className='header'>
-      <div className='logo'>
+      <div className='logo' onClick={starWarsContext.changeTheme}>
         <div>SWAPP</div>
       </div>
       <div className='rightHeader'>

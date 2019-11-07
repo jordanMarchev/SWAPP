@@ -1,8 +1,7 @@
-import { ADD_TOKEN } from '../types';
+import { TOGGLE_THEME } from '../types';
 
-export const addToken = token => {
+export const toggleTheme = () => {
   return {
-    type: ADD_TOKEN,
-    payload: token
+    type: TOGGLE_THEME
   };
 };

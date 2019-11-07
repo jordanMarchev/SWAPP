@@ -1,1 +1,1 @@
-export const ADD_TOKEN = 'ADD_TOKEN';
+export const TOGGLE_THEME = 'TOGGLE_THEME';

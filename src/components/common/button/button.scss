@@ -16,3 +16,12 @@
     cursor: pointer;
   }
 }
+
+.App.dark {
+  .button {
+    button {
+      @include DarkSolidButtons​;
+      font-family: Star;
+    }
+  }
+}

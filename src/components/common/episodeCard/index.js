@@ -2,9 +2,12 @@ import React from 'react';
 
 import './episodeCard.scss';
 
-const EpisodeCard = ({ title, p, img }) => {
+const EpisodeCard = ({ id, title, p, img, history }) => {
+  const onOpenEpisode = () => {
+    history.push(`/episodes/${id}`);
+  };
   return (
-    <div className='episodeCard'>
+    <div className='episodeCard' onClick={() => onOpenEpisode()}>
       <div className='episodeImg'>
         <img width={'202px'} src={img} alt={title} />
       </div>

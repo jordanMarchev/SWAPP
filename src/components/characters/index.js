@@ -1,63 +1,44 @@
 import React from 'react';
 
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import { useQuery, useApolloClient } from '@apollo/react-hooks';
 
 import CharacterCard from '../common/characterCard';
 import Button from '../common/button';
+import { GET_CHARACTERS } from './query';
 
 import './characters.scss';
 
-const GET_DOG_PHOTO = gql`
-  query getPeople($first: Int!, $after: String) {
-    allPeople(first: $first, after: $after) {
-      edges {
-        cursor
-        node {
-          id
-          name
-          image
-        }
-      }
-    }
-  }
-`;
-
 const Characters = ({ history }) => {
-  const { data, loading, error, fetchMore } = useQuery(GET_DOG_PHOTO, {
+  const { data, loading, error, fetchMore } = useQuery(GET_CHARACTERS, {
     variables: { first: 12 }
   });
+  const client = useApolloClient();
 
-  let allPeople = data ? data.allPeople.edges : [];
+  if (loading) return <div>Loading</div>;
+  if (error) {
+    localStorage.removeItem('token');
+    client.writeData({ data: { authenticated: false } });
+
+    return <div>Error</div>;
+  }
+
+  const hasNextPage = data.allPeople.pageInfo.hasNextPage;
+  let allPeople = data.allPeople.edges;
   const onLoadMore = () => {
     const cursor = allPeople[allPeople.length - 1].cursor;
 
     fetchMore({
-      // TODO: 2 to be a constant
-      variables: { first: 2, after: cursor },
+      variables: { first: 12, after: cursor },
       updateQuery: (prev, { fetchMoreResult: { allPeople } }) => {
-        console.log(allPeople.edges, '     people');
-        console.log(prev.allPeople.edges);
-
-        console.log([...allPeople.edges, ...prev.allPeople.edges]);
         return {
           allPeople: {
             ...allPeople,
-            edges: [...allPeople.edges, ...prev.allPeople.edges]
+            edges: [...prev.allPeople.edges, ...allPeople.edges]
           }
         };
       }
     });
   };
-
-  if (loading) return <div>Loading</div>;
-  if (error) {
-    localStorage.removeItem('token');
-    history.push('/episodes');
-    return <div>Error</div>;
-  }
-
-  console.log(data, '   data2');
 
   return (
     <React.Fragment>
@@ -67,14 +48,22 @@ const Characters = ({ history }) => {
 
           return (
             <React.Fragment key={id}>
-              <CharacterCard img={image} name={name} />
+              <CharacterCard
+                id={id}
+                img={image}
+                name={name}
+                history={history}
+                nav={'characters'}
+              />
             </React.Fragment>
           );
         })}
       </div>
-      <div className='loadMore'>
-        <Button onClick={onLoadMore} text={'Load More'} />
-      </div>
+      {hasNextPage && (
+        <div className='loadMore'>
+          <Button onClick={onLoadMore} text={'Load More'} />
+        </div>
+      )}
     </React.Fragment>
   );
 };

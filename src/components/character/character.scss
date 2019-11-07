@@ -1,0 +1,121 @@
+@import '../../css/constants.scss';
+
+.character {
+  max-width: 601px;
+  margin: auto;
+  width: 81%;
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  grid-row-gap: 41px;
+  .characterTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid grey;
+    span {
+      font-family: Star;
+      color: $LighBlue;
+      font-size: 29px;
+    }
+  }
+  .characterInfo {
+    display: grid;
+    grid-template-columns: 282px 282px;
+    grid-column-gap: 31px;
+    .actorInfo {
+      height: 471px;
+      width: 282px;
+      background: white;
+      border-radius: 5px;
+      .actorInfoContainer {
+        display: grid;
+        grid-template-rows: 47px 1fr 131px;
+        grid-gap: 17px;
+        width: 90%;
+        margin: auto;
+        height: 100%;
+        .actorName {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          span {
+            font-family: Star;
+            color: $LighBlue;
+            font-size: 16px;
+          }
+        }
+        .actorThings {
+          p {
+            margin-top: 10px;
+            span {
+              color: $LighBlue;
+            }
+          }
+        }
+      }
+    }
+    .actorStarships {
+      height: 471px;
+      width: 282px;
+      display: grid;
+      grid-template-rows: 50px 1fr;
+      grid-gap: 17px;
+      .pilotedStarships {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid grey;
+        span {
+          font-family: Star;
+          color: slategray;
+          font-size: 19px;
+        }
+      }
+      .starships {
+        display: grid;
+        grid-gap: 11px;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        .characterCard {
+          height: 71.59px;
+        }
+      }
+    }
+  }
+}
+
+.App.dark {
+  .characterTitle {
+    border-bottom: none;
+    span {
+      color: $Yellow;
+    }
+  }
+  .characterInfo {
+    .actorInfo {
+      background: #333;
+      .actorInfoContainer {
+        .actorName {
+          span {
+            color: $Yellow;
+          }
+        }
+        .actorThings {
+          p {
+            color: $LighBlue;
+            span {
+              color: $Yellow;
+            }
+          }
+        }
+      }
+    }
+    .actorStarships {
+      .pilotedStarships {
+        border-bottom: 2px solid grey;
+        span {
+          color: $LighBlue;
+        }
+      }
+    }
+  }
+}

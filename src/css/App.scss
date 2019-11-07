@@ -1,16 +1,47 @@
 @import 'constants.scss';
 
+body {
+  margin: 0;
+  height: -webkit-fill-available;
+  width: auto;
+  @media only screen and (max-width: 420px) {
+    body {
+      width: max-content;
+    }
+  }
+}
+#root {
+  height: inherit;
+}
+
 .App {
-  height: 100%;
+  height: -webkit-fill-available;
   background: #e8eaed;
   .container {
     width: 95%;
     margin: 0 auto;
     margin-top: 29px;
+    height: -webkit-fill-available;
   }
 
   .headerContainer {
     @include LightAppBar​;
+    width: 100%;
+    height: 53px;
+  }
+}
+
+.App.dark {
+  background: black;
+  .container {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 29px;
+    height: -webkit-fill-available;
+  }
+
+  .headerContainer {
+    @include DarkAppBar​;
     width: 100%;
     height: 53px;
   }

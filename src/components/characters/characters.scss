@@ -4,6 +4,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, 284px);
   grid-gap: 41px;
+  .characterCard {
+    min-height: 100px;
+  }
 }
 .loadMore {
   display: flex;

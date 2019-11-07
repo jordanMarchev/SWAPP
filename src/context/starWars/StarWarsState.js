@@ -1,26 +1,24 @@
 import React, { useReducer } from 'react';
 import StarWarsContext from './starWarsContext';
 import StarWarsReducer from './starWarsReducer';
-import { addToken } from './actions';
+import { toggleTheme } from './actions';
 
 const StarWarsState = props => {
   const initialState = {
-    base: 'ETH',
-    token: ''
+    isLightTheme: true
   };
 
   const [state, dispatch] = useReducer(StarWarsReducer, initialState);
 
-  const newToken = token => dispatch(addToken(token));
+  const changeTheme = () => dispatch(toggleTheme());
 
   return (
     <StarWarsContext.Provider
       value={{
-        base: state.base,
-        token: state.token,
+        isLightTheme: state.isLightTheme,
 
         //actions
-        newToken
+        changeTheme
       }}
     >
       {props.children}

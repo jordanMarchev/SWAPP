@@ -1,34 +1,21 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import { useQuery, useApolloClient } from '@apollo/react-hooks';
 
 import EpisodeCard from '../common/episodeCard';
+import { GET_EPISODES } from './query';
+
 import './episodes.scss';
 
-const GET_DOG_PHOTO = gql`
-  query getEpisods($first: Int!) {
-    allEpisodes(first: $first) {
-      edges {
-        node {
-          id
-          title
-          openingCrawl
-          image
-        }
-      }
-    }
-  }
-`;
-
 const Episodes = ({ history }) => {
-  const { data, loading, error } = useQuery(GET_DOG_PHOTO, {
+  const { data, loading, error } = useQuery(GET_EPISODES, {
     variables: { first: 8 }
   });
+  const client = useApolloClient();
 
   if (loading) return <div>Loading</div>;
   if (error) {
     localStorage.removeItem('token');
-    history.push('/login');
+    client.writeData({ data: { authenticated: false } });
 
     return <div>Error</div>;
   }
@@ -42,7 +29,13 @@ const Episodes = ({ history }) => {
 
           return (
             <React.Fragment key={id}>
-              <EpisodeCard title={title} p={newOpening} img={image} />
+              <EpisodeCard
+                id={id}
+                title={title}
+                p={newOpening}
+                img={image}
+                history={history}
+              />
             </React.Fragment>
           );
         });

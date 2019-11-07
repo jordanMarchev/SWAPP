@@ -1,13 +1,16 @@
 @import '../../../css/constants.scss';
 
 .characterCard {
-  height: 100px;
   display: grid;
   grid-template-columns: 35% 65%;
+  height: 100%;
+  cursor: pointer;
 
   img {
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
+    width: 100%;
+    height: 100%;
   }
 
   .characterName {
@@ -19,5 +22,12 @@
     background: white;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
+  }
+}
+
+.App.dark {
+  .characterName {
+    color: $Yellow;
+    background: #333;
   }
 }

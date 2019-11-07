@@ -1,0 +1,67 @@
+@import '../../css/constants.scss';
+
+.episodeContainer {
+  display: grid;
+  grid-template-rows: 300px 173px 1fr;
+  grid-row-gap: 29px;
+  width: 90%;
+  margin: auto;
+  max-width: 1147px;
+  min-width: 566px;
+
+  .filmTitle {
+    pointer-events: none;
+  }
+  .filmInfo {
+    background: white;
+    div {
+      width: 90%;
+      display: grid;
+      margin: auto;
+      grid-template-rows: 68% 8% 8%;
+      height: 84%;
+      margin-top: 14px;
+      grid-row-gap: 11px;
+      .openingCrawl {
+        overflow: auto;
+      }
+      p {
+        span {
+          color: $LighBlue;
+        }
+      }
+    }
+  }
+  .filmActors {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 274px);
+    grid-gap: 17px;
+    .characterCard {
+      min-height: 100px;
+    }
+  }
+}
+
+.App.dark {
+  .container {
+    .episodeContainer {
+      .filmInfo {
+        background: #333;
+        div {
+          .openingCrawl {
+            color: grey;
+          }
+          .openingCrawl {
+            overflow: auto;
+          }
+          p {
+            color: $LighBlue;
+            span {
+              color: $Yellow;
+            }
+          }
+        }
+      }
+    }
+  }
+}

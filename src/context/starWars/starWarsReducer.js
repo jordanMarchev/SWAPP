@@ -1,11 +1,11 @@
-import { ADD_TOKEN } from '../types';
+import { TOGGLE_THEME } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
-    case ADD_TOKEN:
+    case TOGGLE_THEME:
       return {
         ...state,
-        token: action.payload
+        isLightTheme: !state.isLightTheme
       };
 
     default:
